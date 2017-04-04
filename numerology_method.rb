@@ -1,0 +1,54 @@
+puts "Give me the month of your birth in MMDDYYYY format"
+birthdate = gets
+
+def birth_path(birthdate)
+  birthdate_zero = birthdate[0].to_i
+  birthdate_one = birthdate[1].to_i
+  birthdate_two = birthdate[2].to_i
+  birthdate_three = birthdate[3].to_i
+  birthdate_four = birthdate[4].to_i
+  birthdate_five = birthdate[5].to_i
+  birthdate_six = birthdate[6].to_i
+  birthdate_seven = birthdate[7].to_i
+  number = birthdate_zero + birthdate_one + birthdate_two + birthdate_three + birthdate_four + birthdate_five + birthdate_six + birthdate_seven
+  number_string = number.to_s
+  number_one = number_string[0].to_i
+  number_two = number_string[1].to_i
+  number_final = number_one + number_two
+  if number_final > 9
+    number_string = number_final.to_s
+    number_one = number_string[0].to_i
+    number_two = number_string[1].to_i
+    number_final = number_one + number_two
+  end
+  return number_final
+end
+
+def astro_number(birth_path_num)
+  case birth_path_num
+  when 1
+    message = "One is the leader. The number one indicates the ability to stand alone, and is a strong vibration. Ruled by the Sun."
+  when 2
+    message = "This is the mediator and peace-lover. The number two indicates the desire for harmony. It is a gentle, considerate, and sensitive vibration. Ruled by the Moon."
+  when 3
+    message = "Number Three is a sociable, friendly, and outgoing vibration. Kind, positive, and optimistic, Three’s enjoy life and have a good sense of humor. Ruled by Jupiter."
+  when 4
+    message = "This is the worker. Practical, with a love of detail, Fours are trustworthy, hard-working, and helpful. Ruled by Uranus."
+  when 5
+    message = "This is the freedom lover. The number five is an intellectual vibration. These are ‘idea’ people with a love of variety and the ability to adapt to most situations. Ruled by Mercury."
+  when 6
+    message = "This is the peace lover. The number six is a loving, stable, and harmonious vibration. Ruled by Venus."
+  when 7
+    message = "This is the deep thinker. The number seven is a spiritual vibration. These people are not very attached to material things, are introspective, and generally quiet. Ruled by Neptune."
+  when 8
+    message = "This is the manager. Number Eight is a strong, successful, and material vibration. Ruled by Saturn."
+  when 9
+    message = "This is the teacher. Number Nine is a tolerant, somewhat impractical, and sympathetic vibration. Ruled by Mars."
+  else
+    message = "You have a weird birthdate"
+  end
+end
+
+birth_path_num = birth_path(birthdate)
+message = astro_number(birth_path_num)
+puts message
